@@ -3,7 +3,6 @@ import express from 'express';
 import multer from 'multer';
 import jwt from 'jsonwebtoken';
 import { GoogleGenAI } from '@google/genai';
-import { createRequire } from 'module';
 
 import {
   ensureDB,
@@ -26,9 +25,6 @@ import {
   QuizRecord,
   SubmissionRecord,
 } from './db.js';
-
-const requireFunc = typeof require !== 'undefined' ? require : createRequire(import.meta.url);
-const pdfParseFunc: any = requireFunc('pdf-parse');
 
 const JWT_SECRET = process.env.JWT_SECRET_KEY || 'quiz_saas_super_secret_jwt_key_2026';
 
@@ -208,6 +204,8 @@ app.post('/api/teacher/upload-quiz', authenticateToken, requireRole('TEACHER'), 
 
     if (mimeType.includes('pdf')) {
       try {
+        const mod: any = await import('pdf-parse');
+        const pdfParseFunc: any = mod.default || mod;
         const pdfData = await pdfParseFunc(fileBuffer);
         extractedText = pdfData.text || '';
       } catch (e) {
