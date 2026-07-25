@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-serif-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  .font-mono-code {
+    font-family: 'Space Mono', monospace;
+  }
+  .shadow-editorial {
+    box-shadow: 4px 4px 0px #18181b;
+  }
+  .shadow-editorial-lg {
+    box-shadow: 8px 8px 0px #18181b;
+  }
+  .shadow-editorial-orange {
+    box-shadow: 4px 4px 0px #f97316;
+  }
+  .shadow-editorial-orange-lg {
+    box-shadow: 8px 8px 0px #f97316;
+  }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(1000%); }
+}
+
+.animate-scanline {
+  animation: scanline 3s linear infinite;
+}
+

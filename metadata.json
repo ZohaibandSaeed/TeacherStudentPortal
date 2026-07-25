@@ -1,0 +1,6 @@
+{
+  "name": "Quiz SaaS Platform",
+  "description": "AI-Powered Quiz SaaS Platform with Teacher & Student Portals, OCR & Gemini test paper parsing, interactive timed quizzes, and real-time class analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
